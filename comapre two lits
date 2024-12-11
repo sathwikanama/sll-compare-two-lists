@@ -1,0 +1,61 @@
+import java.util.*;
+    class sllnode{
+        int data;
+        sllnode next;
+        sllnode(int data){
+            this.data=data;
+            this.next=null;
+     }   }
+     public class comparelist{
+public static int compare(sllnode list1,sllnode list2){
+    while(list1!=null&&list2!=null){
+        if(list1.data!=list2.data){
+            return 0;
+        }
+        list1=list1.next;
+        list2=list2.next;
+    }
+        if(list1==null&&list2==null){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+
+public static void main(String[] args){
+    Scanner sc=new Scanner(System.in);
+    int t=sc.nextInt();
+    while(t-->0){
+    int n=sc.nextInt();
+    sllnode list1=null,tail1=null;
+    for(int i=0;i<n;i++){
+        int data=sc.nextInt();
+        sllnode newnode=new sllnode(data);
+        if(list1==null){
+            list1=tail1=newnode;
+        }
+        else{
+            tail1.next=newnode;
+            tail1=newnode;
+        }
+    }
+    
+     int m=sc.nextInt();
+    sllnode list2=null,tail2=null;
+    for(int i=0;i<m;i++){
+        int data=sc.nextInt();
+        sllnode newnode=new sllnode(data);
+        if(list2==null){
+            list2=tail2=newnode;
+        }
+        else{
+            tail2.next=newnode;
+            tail2=newnode;
+        }
+    }
+    int result=compare(list1,list2);
+    System.out.println(result);
+    }
+}
+}
